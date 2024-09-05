@@ -55,6 +55,7 @@ import { TransitLine } from '../documents/transit/entities';
 import {
   ProductTransport,
   ProductTransportLine,
+  ProductTransportServiceLine,
 } from '../documents/product-transport/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
@@ -95,6 +96,7 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     ProductionOutLine,
     ProductTransport,
     ProductTransportLine,
+    ProductTransportServiceLine,
     Receive,
     ReceiveLine,
     ReceiveServiceLine,
