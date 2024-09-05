@@ -4,7 +4,7 @@ import { AbstractServiceLineEntity } from '../../entities';
 import { Invoice } from './invoice.entity';
 import { Service } from '../../../goods/entities';
 
-@Entity({ name: 'documents_orderserviceline' })
+@Entity({ name: 'documents_invoiceserviceline' })
 export class InvoiceServiceLine extends AbstractServiceLineEntity {
   @ManyToOne(() => Invoice, {
     onDelete: 'RESTRICT',

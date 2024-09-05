@@ -3,7 +3,7 @@ import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { AbstractDocumentRecipientEntity } from '../../entities';
 import { Currency, Incoterms } from '../../../libs/entities';
 
-@Entity({ name: 'documents_order' })
+@Entity({ name: 'documents_invoice' })
 export class Invoice extends AbstractDocumentRecipientEntity<Invoice> {
   @Column({
     name: 'payment_delay',

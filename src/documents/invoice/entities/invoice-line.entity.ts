@@ -6,7 +6,7 @@ import { Batch, Product } from '../../../goods/entities';
 import { CountryOfOrigin } from '../../../libs/entities';
 import { Order } from '../../orders/entities';
 
-@Entity({ name: 'documents_orderline' })
+@Entity({ name: 'documents_invoiceline' })
 export class InvoiceLine extends AbstractLineEntity {
   @ManyToOne(() => Invoice, {
     onDelete: 'RESTRICT',

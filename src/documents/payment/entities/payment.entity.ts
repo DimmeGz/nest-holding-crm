@@ -2,7 +2,7 @@ import { Column, Entity } from 'typeorm';
 
 import { AbstractDocumentEntity } from '../../entities';
 
-@Entity({ name: 'documents_order' })
+@Entity({ name: 'documents_payment' })
 export class Payment extends AbstractDocumentEntity<Payment> {
   @Column({
     name: 'document_sum',

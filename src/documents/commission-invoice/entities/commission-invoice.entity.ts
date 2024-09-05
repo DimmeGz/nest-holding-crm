@@ -3,7 +3,7 @@ import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { AbstractDocumentEntity } from '../../entities';
 import { Invoice } from '../../invoice/entities';
 
-@Entity({ name: 'documents_order' })
+@Entity({ name: 'documents_commissioninvoice' })
 export class CommissionInvoice extends AbstractDocumentEntity<CommissionInvoice> {
   @Column({
     name: 'document_sum',

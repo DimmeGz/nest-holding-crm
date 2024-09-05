@@ -4,7 +4,7 @@ import { AbstractDocumentRecipientEntity } from '../../entities';
 import { Currency, Incoterms } from '../../../libs/entities';
 import { Order } from '../../orders/entities';
 
-@Entity({ name: 'documents_order' })
+@Entity({ name: 'documents_orderconfirmation' })
 export class OrderConfirmation extends AbstractDocumentRecipientEntity<OrderConfirmation> {
   @Column({
     name: 'payment_delay',
