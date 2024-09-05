@@ -2,10 +2,15 @@ import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
 import { AbstractEntity } from '../../common/entities';
 import { CountryOfOrigin } from '../../libs/entities';
+import { Product } from './product.entity';
 
 @Entity({ name: 'warehouse_batch' })
 export class Batch extends AbstractEntity {
-  // product
+  @ManyToOne(() => Product, {
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn({ name: 'product_id' })
+  product: Product;
 
   @Column({
     type: 'varchar',
