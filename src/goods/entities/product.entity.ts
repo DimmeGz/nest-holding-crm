@@ -58,7 +58,17 @@ export class Product extends AbstractEntity {
   cas: string;
 
   @ManyToMany(() => CustomField)
-  @JoinTable({ name: 'warehouse_product_custom_fields' })
+  @JoinTable({
+    name: 'warehouse_product_custom_fields',
+    joinColumn: {
+      name: 'product_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'customfields_id',
+      referencedColumnName: 'id',
+    },
+  })
   customFields: CustomField[];
 
   @OneToMany(() => Batch, (batch) => batch.product)

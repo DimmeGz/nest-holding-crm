@@ -10,7 +10,12 @@ import {
   Product,
   Service,
 } from '../goods/entities';
-import { CountryOfOrigin, Currency, CurrencyRate } from '../libs/entities';
+import {
+  CountryOfOrigin,
+  Currency,
+  CurrencyRate,
+  TechnicalProcess,
+} from '../libs/entities';
 import { Warehouse, WarehouseAccounting } from '../warehouse/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
@@ -33,6 +38,7 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     Package,
     Product,
     Service,
+    TechnicalProcess,
     Warehouse,
     WarehouseAccounting,
   ],
