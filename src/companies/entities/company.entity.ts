@@ -1,7 +1,8 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 
 import { CompanyType } from '../enums';
 import { AbstractEntity } from '../../common/entities';
+import { Account } from './account.entity';
 
 @Entity({ name: 'companies_company' })
 export class Company extends AbstractEntity {
@@ -134,4 +135,7 @@ export class Company extends AbstractEntity {
   calendarHex: string;
 
   // logo_url
+
+  @OneToMany(() => Account, (account) => account.company)
+  accounts: Account[];
 }

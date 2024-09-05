@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Account } from '../../companies/entities';
 
 @Entity({ name: 'companies_currency' })
 export class Currency {
@@ -7,4 +8,7 @@ export class Currency {
 
   @Column({ type: 'varchar', length: 3 })
   name: string;
+
+  @OneToMany(() => Account, (account) => account.currency)
+  accounts: Account[];
 }
