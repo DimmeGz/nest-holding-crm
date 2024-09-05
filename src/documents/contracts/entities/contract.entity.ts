@@ -10,7 +10,7 @@ import {
 import { AbstractDocumentEntity } from '../../entities';
 import { Incoterms, TechnicalProcess } from '../../../libs/entities';
 
-@Entity()
+@Entity({ name: 'documents_contract' })
 export class Contract extends AbstractDocumentEntity<Contract> {
   @ManyToMany(() => TechnicalProcess)
   @JoinTable({

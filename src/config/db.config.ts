@@ -18,7 +18,7 @@ import {
 } from '../libs/entities';
 import { Warehouse, WarehouseAccounting } from '../warehouse/entities';
 
-import { Contract } from '../documents/contracts/entities';
+import { Contract, ContractLine } from '../documents/contracts/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -33,6 +33,7 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     BatchCustomField,
     Company,
     Contract,
+    ContractLine,
     CountryOfOrigin,
     Currency,
     CurrencyRate,
