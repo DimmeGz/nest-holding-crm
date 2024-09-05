@@ -1,7 +1,14 @@
-import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+} from 'typeorm';
 
 import { AbstractDocumentRecipientEntity } from '../../entities';
-import { Currency, Incoterms } from '../../../libs/entities';
+import { Currency, Incoterms, TechnicalProcess } from '../../../libs/entities';
 import { Order } from '../../orders/entities';
 
 @Entity({ name: 'documents_orderconfirmation' })
@@ -52,4 +59,18 @@ export class OrderConfirmation extends AbstractDocumentRecipientEntity<OrderConf
     length: 20,
   })
   transportPlace: string;
+
+  @ManyToMany(() => TechnicalProcess)
+  @JoinTable({
+    name: 'documents_orderconfirmation_technical_process',
+    joinColumn: {
+      name: 'orderconfirmation_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'technical_process_id',
+      referencedColumnName: 'id',
+    },
+  })
+  technicalProcesses: TechnicalProcess[];
 }

@@ -1,7 +1,14 @@
-import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+} from 'typeorm';
 
 import { AbstractDocumentRecipientEntity } from '../../entities';
-import { Currency, Incoterms } from '../../../libs/entities';
+import { Currency, Incoterms, TechnicalProcess } from '../../../libs/entities';
 import { Contract } from '../../contracts/entities';
 
 @Entity({ name: 'documents_order' })
@@ -117,4 +124,18 @@ export class Order extends AbstractDocumentRecipientEntity<Order> {
     default: false,
   })
   isHidden: boolean;
+
+  @ManyToMany(() => TechnicalProcess)
+  @JoinTable({
+    name: 'documents_order_technical_process',
+    joinColumn: {
+      name: 'order_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'technical_process_id',
+      referencedColumnName: 'id',
+    },
+  })
+  technicalProcesses: TechnicalProcess[];
 }

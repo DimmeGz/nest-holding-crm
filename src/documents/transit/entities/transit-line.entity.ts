@@ -1,5 +1,4 @@
 import {
-  Batch,
   Column,
   Entity,
   JoinColumn,
@@ -12,6 +11,7 @@ import { AbstractEntity } from '../../../common/entities';
 import { Shipment } from '../../shipment/entities';
 import { Receive } from '../../receive/entities';
 import { TechnicalProcess } from '../../../libs/entities';
+import { Batch } from '../../../goods/entities';
 
 @Entity({ name: 'documents_transitline' })
 export class TransitLine extends AbstractEntity {

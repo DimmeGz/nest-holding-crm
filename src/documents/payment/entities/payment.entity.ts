@@ -1,6 +1,7 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
 
 import { AbstractDocumentEntity } from '../../entities';
+import { TechnicalProcess } from '../../../libs/entities';
 
 @Entity({ name: 'documents_payment' })
 export class Payment extends AbstractDocumentEntity<Payment> {
@@ -20,4 +21,18 @@ export class Payment extends AbstractDocumentEntity<Payment> {
     nullable: true,
   })
   expectedDate: Date;
+
+  @ManyToMany(() => TechnicalProcess)
+  @JoinTable({
+    name: 'documents_payment_technical_process',
+    joinColumn: {
+      name: 'payment_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'technical_process_id',
+      referencedColumnName: 'id',
+    },
+  })
+  technicalProcesses: TechnicalProcess[];
 }

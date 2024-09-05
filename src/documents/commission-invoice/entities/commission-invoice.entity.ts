@@ -1,7 +1,15 @@
-import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+} from 'typeorm';
 
 import { AbstractDocumentEntity } from '../../entities';
 import { Invoice } from '../../invoice/entities';
+import { TechnicalProcess } from '../../../libs/entities';
 
 @Entity({ name: 'documents_commissioninvoice' })
 export class CommissionInvoice extends AbstractDocumentEntity<CommissionInvoice> {
@@ -45,4 +53,18 @@ export class CommissionInvoice extends AbstractDocumentEntity<CommissionInvoice>
     scale: 2,
   })
   rate: number;
+
+  @ManyToMany(() => TechnicalProcess)
+  @JoinTable({
+    name: 'documents_commissioninvoice_technical_process',
+    joinColumn: {
+      name: 'commissioninvoice_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'technical_process_id',
+      referencedColumnName: 'id',
+    },
+  })
+  technicalProcesses: TechnicalProcess[];
 }

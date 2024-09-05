@@ -1,7 +1,14 @@
-import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+} from 'typeorm';
 
 import { AbstractDocumentEntity } from '../../entities';
-import { Incoterms } from '../../../libs/entities';
+import { Incoterms, TechnicalProcess } from '../../../libs/entities';
 import { Warehouse } from '../../../warehouse/entities';
 import { Invoice } from '../../invoice/entities';
 
@@ -58,4 +65,18 @@ export class Shipment extends AbstractDocumentEntity<Shipment> {
   })
   @JoinColumn({ name: 'invoice_id' })
   invoice: Invoice;
+
+  @ManyToMany(() => TechnicalProcess)
+  @JoinTable({
+    name: 'documents_shipment_technical_process',
+    joinColumn: {
+      name: 'shipment_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'technical_process_id',
+      referencedColumnName: 'id',
+    },
+  })
+  technicalProcesses: TechnicalProcess[];
 }

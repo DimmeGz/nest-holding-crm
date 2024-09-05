@@ -1,7 +1,14 @@
-import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+} from 'typeorm';
 
 import { AbstractDocumentRecipientEntity } from '../../entities';
-import { Currency, Incoterms } from '../../../libs/entities';
+import { Currency, Incoterms, TechnicalProcess } from '../../../libs/entities';
 
 @Entity({ name: 'documents_invoice' })
 export class Invoice extends AbstractDocumentRecipientEntity<Invoice> {
@@ -126,4 +133,18 @@ export class Invoice extends AbstractDocumentRecipientEntity<Invoice> {
     default: 0,
   })
   transportAmount: number;
+
+  @ManyToMany(() => TechnicalProcess)
+  @JoinTable({
+    name: 'documents_invoice_technical_process',
+    joinColumn: {
+      name: 'invoice_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'technical_process_id',
+      referencedColumnName: 'id',
+    },
+  })
+  technicalProcesses: TechnicalProcess[];
 }
