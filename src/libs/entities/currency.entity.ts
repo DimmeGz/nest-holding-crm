@@ -1,11 +1,9 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 import { Account } from '../../companies/entities';
+import { AbstractEntity } from '../../common/entities';
 
 @Entity({ name: 'companies_currency' })
-export class Currency {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class Currency extends AbstractEntity {
   @Column({ type: 'varchar', length: 3 })
   name: string;
 
