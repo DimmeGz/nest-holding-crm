@@ -11,6 +11,7 @@ import { ShipmentModule } from './shipment';
 import { ReceiveModule } from './receive';
 import { ProductionModule } from './production';
 import { TransitModule } from './transit';
+import { ProductTransportModule } from './product-transport';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { TransitModule } from './transit';
     ReceiveModule,
     ProductionModule,
     TransitModule,
+    ProductTransportModule,
   ],
 })
 export class DocumentsModule {}
