@@ -2,6 +2,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 import { Account, Company } from '../companies/entities';
 import { Contract } from '../contracts/entities';
+import { Batch, Product } from '../goods/entities';
 import { Currency, CurrencyRate } from '../libs/entities';
 import { Warehouse } from '../warehouse/entities';
 
@@ -12,5 +13,14 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [Account, Company, Contract, Currency, CurrencyRate, Warehouse],
+  entities: [
+    Account,
+    Batch,
+    Company,
+    Contract,
+    Currency,
+    CurrencyRate,
+    Product,
+    Warehouse,
+  ],
 };
