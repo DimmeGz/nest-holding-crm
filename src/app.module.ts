@@ -8,6 +8,7 @@ import { AppService } from './app.service';
 import { ContractsModule } from './contracts/';
 import { CompaniesModule } from './companies/';
 import { LibsModule } from './libs';
+import { WarehouseModule } from './warehouse';
 
 import { DB_CONFIG, VALIDATION_SCHEMA } from './config';
 
@@ -18,6 +19,7 @@ import { DB_CONFIG, VALIDATION_SCHEMA } from './config';
     ContractsModule,
     CompaniesModule,
     LibsModule,
+    WarehouseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
