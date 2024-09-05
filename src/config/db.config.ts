@@ -51,6 +51,7 @@ import {
   ProductionInLine,
   ProductionOutLine,
 } from '../documents/production/entities';
+import { TransitLine } from '../documents/transit/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -96,6 +97,7 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     ShipmentLine,
     ShipmentServiceLine,
     TechnicalProcess,
+    TransitLine,
     Warehouse,
     WarehouseAccounting,
   ],

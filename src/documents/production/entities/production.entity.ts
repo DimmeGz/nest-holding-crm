@@ -59,7 +59,7 @@ export class Production extends AbstractEntity {
 
   @ManyToMany(() => TechnicalProcess)
   @JoinTable({
-    name: 'documents_contract_technical_process',
+    name: 'documents_production_technical_process',
     joinColumn: {
       name: 'production_id',
       referencedColumnName: 'id',
