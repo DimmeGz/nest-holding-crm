@@ -1,7 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 import { Account, Company } from '../companies/entities';
-import { Contract } from '../contracts/entities';
 import {
   Batch,
   BatchCustomField,
@@ -18,6 +17,8 @@ import {
   TechnicalProcess,
 } from '../libs/entities';
 import { Warehouse, WarehouseAccounting } from '../warehouse/entities';
+
+import { Contract } from '../documents/contracts/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
   type: 'postgres',
