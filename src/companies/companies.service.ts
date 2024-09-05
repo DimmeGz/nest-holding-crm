@@ -19,6 +19,8 @@ export class CompaniesService {
       })
       .leftJoinAndSelect('company.accounts', 'accounts')
       .leftJoinAndSelect('accounts.currency', 'currency')
+      .leftJoinAndSelect('company.defaultWarehouse', 'defaultWarehouse')
+      .leftJoinAndSelect('company.warehousesUsage', 'warehousesUsage')
       .getMany();
   }
 }

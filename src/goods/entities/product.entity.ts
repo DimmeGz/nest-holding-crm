@@ -1,8 +1,17 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 
+import { CustomField } from './custom-field.entity';
+import { Batch } from './batch.entity';
 import { AbstractEntity } from '../../common/entities';
 import { CountryOfOrigin } from '../../libs/entities';
-import { Batch } from './batch.entity';
 
 @Entity({ name: 'warehouse_product' })
 export class Product extends AbstractEntity {
@@ -48,7 +57,9 @@ export class Product extends AbstractEntity {
   })
   cas: string;
 
-  //   custom_fields
+  @ManyToMany(() => CustomField)
+  @JoinTable({ name: 'warehouse_product_custom_fields' })
+  customFields: CustomField[];
 
   @OneToMany(() => Batch, (batch) => batch.product)
   batches: Batch[];

@@ -4,7 +4,9 @@ import { Currency } from './currency.entity';
 
 @Entity({ name: 'companies_currencyrate' })
 export class CurrencyRate extends AbstractEntity {
-  // date
+  @Column({ type: 'date' })
+  date: Date;
+
   @ManyToOne(() => Currency, {
     onDelete: 'CASCADE',
   })

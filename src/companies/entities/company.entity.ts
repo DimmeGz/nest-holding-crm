@@ -1,8 +1,17 @@
-import { Column, Entity, OneToMany } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 
 import { CompanyType } from '../enums';
 import { AbstractEntity } from '../../common/entities';
 import { Account } from './account.entity';
+import { Warehouse } from '../../warehouse/entities';
 
 @Entity({ name: 'companies_company' })
 export class Company extends AbstractEntity {
@@ -31,7 +40,11 @@ export class Company extends AbstractEntity {
   @Column({ name: 'report_type', default: 0, type: 'smallint', unsigned: true })
   reportType: number;
 
-  // default_warehouse
+  @ManyToOne(() => Warehouse, {
+    onDelete: 'RESTRICT',
+  })
+  @JoinColumn({ name: 'default_warehouse_id' })
+  defaultWarehouse: Warehouse;
 
   @Column({
     name: 'invoice_prefix',
@@ -116,7 +129,19 @@ export class Company extends AbstractEntity {
   })
   contactPerson: string;
 
-  // warehouses_usage
+  @ManyToMany(() => Warehouse)
+  @JoinTable({
+    name: 'companies_company_warehouses_usage',
+    joinColumn: {
+      name: 'company_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'warehouse_id',
+      referencedColumnName: 'id',
+    },
+  })
+  warehousesUsage: Warehouse[];
 
   @Column({
     name: 'vat_triangulation_basis',
