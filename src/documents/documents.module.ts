@@ -9,6 +9,7 @@ import { CommissionPaymentModule } from './commission-payment';
 import { PaymentModule } from './payment';
 import { ShipmentModule } from './shipment';
 import { ReceiveModule } from './receive';
+import { ProductionModule } from './production';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { ReceiveModule } from './receive';
     PaymentModule,
     ShipmentModule,
     ReceiveModule,
+    ProductionModule,
   ],
 })
 export class DocumentsModule {}

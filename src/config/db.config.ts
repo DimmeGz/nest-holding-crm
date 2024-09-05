@@ -46,6 +46,11 @@ import {
   ReceiveLine,
   ReceiveServiceLine,
 } from '../documents/receive/entities';
+import {
+  Production,
+  ProductionInLine,
+  ProductionOutLine,
+} from '../documents/production/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -80,6 +85,9 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     Payment,
     PaymentLine,
     Product,
+    Production,
+    ProductionInLine,
+    ProductionOutLine,
     Receive,
     ReceiveLine,
     ReceiveServiceLine,
