@@ -4,7 +4,7 @@ import { AbstractEntity } from '../../../common/entities';
 import { Payment } from './payment.entity';
 import { Invoice } from '../../invoice/entities';
 
-@Entity()
+@Entity({ name: 'documents_paymentline' })
 export class PaymentLine extends AbstractEntity {
   @ManyToOne(() => Payment, {
     onDelete: 'RESTRICT',

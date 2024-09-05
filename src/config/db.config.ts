@@ -36,6 +36,11 @@ import {
 import { CommissionInvoice } from '../documents/commission-invoice/entities';
 import { CommissionPayment } from '../documents/commission-payment/entities';
 import { Payment, PaymentLine } from '../documents/payment/entities';
+import {
+  Shipment,
+  ShipmentLine,
+  ShipmentServiceLine,
+} from '../documents/shipment/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -71,6 +76,9 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     PaymentLine,
     Product,
     Service,
+    Shipment,
+    ShipmentLine,
+    ShipmentServiceLine,
     TechnicalProcess,
     Warehouse,
     WarehouseAccounting,
