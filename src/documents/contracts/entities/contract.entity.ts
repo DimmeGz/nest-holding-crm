@@ -56,7 +56,6 @@ export class Contract extends AbstractDocumentEntity<Contract> {
   name: string;
 
   @Column({
-    name: 'signature_date',
     type: 'date',
     nullable: true,
   })

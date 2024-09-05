@@ -17,9 +17,6 @@ export class ContractLine extends AbstractLineEntity {
   @JoinColumn({ name: 'product_id' })
   product: Product;
 
-  @Column({ type: 'smallint', unsigned: true, default: 1 })
-  qty: number;
-
   @Column({ name: 'ship_qty', type: 'smallint', unsigned: true, default: 1 })
   shipQty: number;
 }

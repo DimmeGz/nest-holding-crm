@@ -19,6 +19,11 @@ import {
 import { Warehouse, WarehouseAccounting } from '../warehouse/entities';
 
 import { Contract, ContractLine } from '../documents/contracts/entities';
+import {
+  Order,
+  OrderLine,
+  OrderServiceLine,
+} from '../documents/orders/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -39,6 +44,9 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     CurrencyRate,
     CustomField,
     Incoterms,
+    Order,
+    OrderLine,
+    OrderServiceLine,
     Package,
     Product,
     Service,
