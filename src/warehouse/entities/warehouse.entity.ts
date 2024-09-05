@@ -1,7 +1,7 @@
 import { Column, Entity } from 'typeorm';
 import { AbstractEntity } from '../../common/entities';
 
-@Entity()
+@Entity({ name: 'warehouse_warehouse' })
 export class Warehouse extends AbstractEntity {
   @Column({
     type: 'varchar',
