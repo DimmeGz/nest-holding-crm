@@ -28,7 +28,11 @@ import {
   OrderConfirmation,
   OrderConfirmationLine,
 } from '../documents/orders-confirmation/entities';
-import { Invoice, InvoiceLine } from '../documents/invoice/entities';
+import {
+  Invoice,
+  InvoiceLine,
+  InvoiceServiceLine,
+} from '../documents/invoice/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -51,6 +55,7 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     Incoterms,
     Invoice,
     InvoiceLine,
+    InvoiceServiceLine,
     Order,
     OrderLine,
     OrderServiceLine,
