@@ -14,6 +14,7 @@ import {
   CountryOfOrigin,
   Currency,
   CurrencyRate,
+  Incoterms,
   TechnicalProcess,
 } from '../libs/entities';
 import { Warehouse, WarehouseAccounting } from '../warehouse/entities';
@@ -35,6 +36,7 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     Currency,
     CurrencyRate,
     CustomField,
+    Incoterms,
     Package,
     Product,
     Service,
