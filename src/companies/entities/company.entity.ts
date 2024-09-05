@@ -1,11 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity } from 'typeorm';
+
 import { CompanyType } from '../enums';
+import { AbstractEntity } from '../../common/entities';
 
 @Entity({ name: 'companies_company' })
-export class Company {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class Company extends AbstractEntity {
   @Column({ name: 'name', type: 'varchar', length: 50 })
   name: string;
 
