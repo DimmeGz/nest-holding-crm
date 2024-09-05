@@ -24,6 +24,10 @@ import {
   OrderLine,
   OrderServiceLine,
 } from '../documents/orders/entities';
+import {
+  OrderConfirmation,
+  OrderConfirmationLine,
+} from '../documents/orders-confirmation/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -47,6 +51,8 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     Order,
     OrderLine,
     OrderServiceLine,
+    OrderConfirmation,
+    OrderConfirmationLine,
     Package,
     Product,
     Service,
