@@ -4,7 +4,7 @@ import { Account, Company } from '../companies/entities';
 import { Contract } from '../contracts/entities';
 import { Batch, Package, Product, Service } from '../goods/entities';
 import { CountryOfOrigin, Currency, CurrencyRate } from '../libs/entities';
-import { Warehouse } from '../warehouse/entities';
+import { Warehouse, WarehouseAccounting } from '../warehouse/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -25,5 +25,6 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     Product,
     Service,
     Warehouse,
+    WarehouseAccounting,
   ],
 };
