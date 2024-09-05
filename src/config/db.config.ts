@@ -33,6 +33,7 @@ import {
   InvoiceLine,
   InvoiceServiceLine,
 } from '../documents/invoice/entities';
+import { CommissionInvoice } from '../documents/commission-invoice/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -45,6 +46,7 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     Account,
     Batch,
     BatchCustomField,
+    CommissionInvoice,
     Company,
     Contract,
     ContractLine,
