@@ -7,6 +7,7 @@ import { AppService } from './app.service';
 
 import { ContractsModule } from './contracts/';
 import { CompaniesModule } from './companies/';
+import { LibsModule } from './libs';
 
 import { DB_CONFIG, VALIDATION_SCHEMA } from './config';
 
@@ -16,6 +17,7 @@ import { DB_CONFIG, VALIDATION_SCHEMA } from './config';
     TypeOrmModule.forRoot(DB_CONFIG),
     ContractsModule,
     CompaniesModule,
+    LibsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

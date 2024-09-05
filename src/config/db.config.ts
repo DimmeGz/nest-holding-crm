@@ -1,6 +1,8 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+
 import { Company } from '../companies/entities';
 import { Contract } from '../contracts/entities';
+import { Currency } from '../libs/entities';
 
 export const DB_CONFIG: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -9,5 +11,5 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [Company, Contract],
+  entities: [Company, Contract, Currency],
 };
