@@ -2,7 +2,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 import { Account, Company } from '../companies/entities';
 import { Contract } from '../contracts/entities';
-import { Batch, Product } from '../goods/entities';
+import { Batch, Product, Service } from '../goods/entities';
 import { Currency, CurrencyRate } from '../libs/entities';
 import { Warehouse } from '../warehouse/entities';
 
@@ -21,6 +21,7 @@ export const DB_CONFIG: TypeOrmModuleOptions = {
     Currency,
     CurrencyRate,
     Product,
+    Service,
     Warehouse,
   ],
 };
